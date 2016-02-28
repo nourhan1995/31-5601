@@ -1,0 +1,21 @@
+body {
+	min-height: 100%;
+	height: 500px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+	color: #222;
+    line-height: 1.5;
+    background: url(..img/download.jpg) no-repeat center center fixed;
+    background-size: cover;
+}
+
+h1 {
+	text-align: center;
+	color: #fdeef4;
+}
+
+h5 {
+	text-align: left;
+	color: #ffffff;
+}

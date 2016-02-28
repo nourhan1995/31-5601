@@ -1,0 +1,18 @@
+{
+  "name": "sanity-diary",
+  "version": "1.0.0",
+  "author": "Nourhan",
+  "scripts": {
+    "start": "node app.js",
+    "test": "mocha quotes.js",
+    "coverage": "istanbul quotes.js"
+  },
+  "dependencies": {
+    "chai": "^3.5.0",
+    "express": "^4.13.4",
+    "istanbul": "^0.4.2",
+    "mocha": "^2.4.5",
+    "mongodb": "^2.1.7",
+    "supertest": "^1.2.0"
+  }
+}
