@@ -1,8 +1,12 @@
 // db.js
-var mongo = require('mongodb').MongoClient;
-var DB = null;
-var dbURL = 'mongodb://localhost:27017/quotes';
-
+var mongo  = require('mongodb').MongoClient;
+var assert = require('assert');
+var DB     = null;
+var dbURL  = 'mongodb://localhost:27017/Quotes';
+var quote  = {
+	"text" : "20 percent of the code has 80 percent of the errors. Find them, fix them!",
+	"author": "Lowell Arthur"
+};
 /**
  * function that connects to the mongodb instance initialized.
  * @param  {Function} cb callback for when connection is complete
@@ -10,15 +14,9 @@ var dbURL = 'mongodb://localhost:27017/quotes';
 exports.connect = function(cb) {
     // You do this one
     mongo.connect(dbURL, function(err, db){
-    	if(err){
-    		console.log('Unable to connect to the mongoDB server. Error: ', err);
-    	}else{
-    		console.log('Connection established to ', dbURL);
-    		DB = db;
-    		cb(DB);
-    		 // do some work here with the database.
-    		 // db should then be closed
-    	}
+    	assert.equal(null, err);
+    	DB = db;
+    	cb(err, db);
     });
 };
 
@@ -38,11 +36,40 @@ exports.db = function() {
  * clears all collections in the database calling the callback when done
  * @param  {Function} done callback indicating the operation is complete
  */
-exports.clearDB = function(done) {
+ exports.clearDB = function clearDB(done) {
+	console.log('trying to clear');
     DB.listCollections().toArray().then(function (collections) {
         collections.forEach(function (c) {
-            DB.collection(c.name).removeMany();   
+            DB.collection(c.name).removeMany(); 
+            console.log('removed a collection');  
         });
         done();
     }).catch(done);
 };
+
+// module.exports = clearDB;
+// module.exports = connect;
+
+// exports.seed = function(cb){
+// 	console.log('trying to seed');
+// 	clearDB(function(err){
+// 		console.log('trying to assert');
+// 		assert.equal(null, err);
+// 		DB.db().collection('quote').insert(quote, function(err, result){
+// 			assert.equal(null, err);
+// 			assert.equal(1, result.result.n);
+// 			cb(err);
+// 		});
+// 	});
+// };
+
+
+// seed: function seed(cb){
+// 		DB.clear(function(err){
+// 			assert.equal(null, err);
+// 			DB.db().collection('post').insert(post,function(err, result){
+// 				assert.equal(null, err);
+// 				assert.equal(1, result.result.n);
+// 				cb(err);
+// 			});
+// 		});

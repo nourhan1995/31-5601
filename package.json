@@ -3,9 +3,9 @@
   "version": "1.0.0",
   "author": "Nourhan",
   "scripts": {
-    "start": "node app.js",
-    "test": "mocha quotes.js",
-    "coverage": "istanbul quotes.js"
+    "start": "nodemon server.js",
+    "test": "mocha",
+    "coverage": "istanbul cover _mocha"
   },
   "dependencies": {
     "chai": "^3.5.0",
@@ -13,6 +13,7 @@
     "istanbul": "^0.4.2",
     "mocha": "^2.4.5",
     "mongodb": "^2.1.7",
+    "nodemon": "^1.9.1",
     "supertest": "^1.2.0"
   }
 }

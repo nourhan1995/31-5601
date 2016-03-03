@@ -6,16 +6,16 @@ body {
     justify-content: center;
 	color: #222;
     line-height: 1.5;
-    background: url(..img/download.jpg) no-repeat center center fixed;
+    /*background: url(../img/city.jpg) no-repeat center center fixed;*/
     background-size: cover;
 }
 
 h1 {
 	text-align: center;
-	color: #fdeef4;
+	color: #3090c7;
 }
 
 h5 {
 	text-align: left;
-	color: #ffffff;
+	color: #000;
 }
